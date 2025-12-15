@@ -22,3 +22,9 @@ export const IngredientsCategoryUI = forwardRef<
     </ul>
   </>
 ));
+// BurgerIngredients
+// Из библиотеки берутся:
+// • 	типографика
+// • 	система отступов
+// • 	табы
+// • 	карточки ингредиентов

@@ -1,20 +1,28 @@
-import React, { FC, memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 import styles from './burger-constructor-element.module.css';
 import { ConstructorElement } from '@zlden/react-developer-burger-ui-components';
 import { BurgerConstructorElementUIProps } from './type';
 import { MoveButton } from '@zlden/react-developer-burger-ui-components';
 
-export const BurgerConstructorElementUI: FC<BurgerConstructorElementUIProps> =
-  memo(
-    ({
-      ingredient,
-      index,
-      totalItems,
-      handleMoveUp,
-      handleMoveDown,
-      handleClose
-    }) => (
-      <li className={`${styles.element} mb-4 mr-2`}>
+export const BurgerConstructorElementUI = memo(
+  forwardRef<HTMLLIElement, BurgerConstructorElementUIProps>(
+    (
+      {
+        ingredient,
+        index,
+        totalItems,
+        handleMoveUp,
+        handleMoveDown,
+        handleClose,
+        isDragging
+      },
+      ref
+    ) => (
+      <li
+        className={`${styles.element} mb-4 mr-2`}
+        ref={ref}
+        style={{ opacity: isDragging ? 0.3 : 1 }}
+      >
         <MoveButton
           handleMoveDown={handleMoveDown}
           handleMoveUp={handleMoveUp}
@@ -31,4 +39,5 @@ export const BurgerConstructorElementUI: FC<BurgerConstructorElementUIProps> =
         </div>
       </li>
     )
-  );
+  )
+);
