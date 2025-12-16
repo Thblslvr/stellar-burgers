@@ -1,5 +1,10 @@
+export type FeedInfo = {
+  total: number;
+  totalToday: number;
+};
+
 export type FeedInfoUIProps = {
-  feed: any;
+  feed: FeedInfo;
   readyOrders: number[];
   pendingOrders: number[];
 };

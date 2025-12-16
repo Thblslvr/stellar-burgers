@@ -22,6 +22,7 @@ export const BurgerConstructorElementUI = memo(
         className={`${styles.element} mb-4 mr-2`}
         ref={ref}
         style={{ opacity: isDragging ? 0.3 : 1 }}
+        data-testid='constructor-element'
       >
         <MoveButton
           handleMoveDown={handleMoveDown}

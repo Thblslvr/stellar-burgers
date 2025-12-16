@@ -16,4 +16,4 @@ export const rootReducer = combineReducers({
   ingredientDetails: ingredientDetailsReducer
 });
 
-export type RootReducer = typeof rootReducer;
+export type RootReducerState = ReturnType<typeof rootReducer>;
