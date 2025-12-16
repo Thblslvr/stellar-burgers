@@ -14,7 +14,7 @@ import reducer, {
   clearConstructor,
   closeOrderModal
 } from '../slices/constructorSlice';
-import { TIngredient } from '@utils-types';
+import { TIngredient, TOrder } from '@utils-types';
 
 const mockBun: TIngredient = {
   _id: 'bun-1',
@@ -133,9 +133,19 @@ describe('constructorSlice', () => {
 
   describe('closeOrderModal', () => {
     it('должен закрывать модальное окно заказа', () => {
+      const mockOrder: TOrder = {
+        _id: 'order-1',
+        status: 'done',
+        name: 'Test order',
+        createdAt: '',
+        updatedAt: '',
+        number: 12345,
+        ingredients: []
+      };
+
       const stateWithModal = {
         ...initialState,
-        orderModalData: { _id: 'order-1', number: 12345 } as any,
+        orderModalData: mockOrder,
         error: 'Some error'
       };
 

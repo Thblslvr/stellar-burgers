@@ -1,7 +1,12 @@
-import { TOrder } from '@utils-types';
+import { TOrder, TConstructorIngredient, TIngredient } from '@utils-types';
+
+export type ConstructorItems = {
+  bun: TIngredient | null;
+  ingredients: TConstructorIngredient[];
+};
 
 export type BurgerConstructorUIProps = {
-  constructorItems: any;
+  constructorItems: ConstructorItems;
   orderRequest: boolean;
   price: number;
   orderModalData: TOrder | null;
