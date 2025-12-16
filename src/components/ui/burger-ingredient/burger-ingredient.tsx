@@ -17,7 +17,11 @@ export const BurgerIngredientUI = memo(
       const { image, price, name, _id } = ingredient;
 
       return (
-        <li className={styles.container} ref={ref}>
+        <li
+          className={styles.container}
+          ref={ref}
+          data-testid='burger-ingredient'
+        >
           <Link
             className={styles.article}
             to={`/ingredients/${_id}`}
@@ -38,11 +42,17 @@ export const BurgerIngredientUI = memo(
               {name}
             </p>
           </Link>
-          <AddButton
-            text='Добавить'
+          <div
+            data-testid='burger-ingredient-add-button'
             onClick={handleAdd}
-            extraClass={`${styles.addButton} mt-8`}
-          />
+            role='button'
+          >
+            <AddButton
+              text='Добавить'
+              onClick={handleAdd}
+              extraClass={`${styles.addButton} mt-8`}
+            />
+          </div>
         </li>
       );
     }
